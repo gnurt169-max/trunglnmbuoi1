@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <linearGradient id="alumGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#cbd5e1"/>
+      <stop offset="50%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+    <filter id="shadow7" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#475569" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg7)"/>
+  <ellipse cx="200" cy="335" rx="120" ry="16" fill="#cbd5e1" opacity="0.6"/>
+
+  <!-- Aluminum Laptop Stand -->
+  <g filter="url(#shadow7)">
+    <!-- Base Plate -->
+    <polygon points="100,300 300,300 270,270 130,270" fill="#94a3b8"/>
+
+    <!-- Support arms -->
+    <line x1="150" y1="270" x2="160" y2="170" stroke="#64748b" stroke-width="12" stroke-linecap="round"/>
+    <line x1="250" y1="270" x2="240" y2="170" stroke="#64748b" stroke-width="12" stroke-linecap="round"/>
+
+    <!-- Top Tray (Slanted) -->
+    <polygon points="90,190 310,190 330,120 70,120" fill="url(#alumGrad)"/>
+
+    <!-- Ventilation cutouts -->
+    <rect x="130" y="140" width="140" height="12" rx="6" fill="#e2e8f0"/>
+    <rect x="150" y="160" width="100" height="10" rx="5" fill="#e2e8f0"/>
+
+    <!-- Silicone hooks to hold laptop -->
+    <path d="M 90 190 L 90 205 Q 100 215 110 205 L 110 190" fill="#334155"/>
+    <path d="M 290 190 L 290 205 Q 300 215 310 205 L 310 190" fill="#334155"/>
+  </g>
+</svg>

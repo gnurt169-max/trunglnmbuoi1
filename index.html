@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UEH Store - Gợi ý hôm nay | Giá tốt chính hãng</title>
+  
+  <!-- Liên kết file CSS thuần -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       1. HEADER (ĐẦU TRANG)
+       Bao gồm Logo thương hiệu, Thanh tìm kiếm nhanh và Biểu tượng Giỏ hàng
+       ====================================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- Khối Logo -->
+      <a href="#" class="brand-logo" title="Trang chủ UEH Store">
+        <div class="brand-icon">🛒</div>
+        <span>UEH Store</span>
+        <span class="brand-badge">Official</span>
+      </a>
+
+      <!-- Khối Thanh tìm kiếm mẫu -->
+      <div class="header-search">
+        <span class="search-icon">🔍</span>
+        <input 
+          type="text" 
+          class="search-input" 
+          placeholder="Bạn tìm kiếm phụ kiện công nghệ gì hôm nay?..." 
+          aria-label="Tìm kiếm sản phẩm"
+        >
+        <button type="button" class="search-btn">Tìm kiếm</button>
+      </div>
+
+      <!-- Khối Giỏ hàng kèm Badge số lượng -->
+      <div class="header-actions">
+        <a href="#cart" class="cart-button" title="Xem giỏ hàng của bạn">
+          <div class="cart-icon-wrapper">
+            🛒
+            <span class="cart-badge">3</span>
+          </div>
+          <span class="cart-text">Giỏ hàng</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       2. MAIN CONTENT (NỘI DUNG CHÍNH)
+       Khu vực hiển thị danh sách sản phẩm nổi bật với CSS Grid và Flexbox
+       ====================================================================== -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Tiêu đề mục sản phẩm gợi ý -->
+      <section class="section-header">
+        <h1 class="section-title">Gợi ý hôm nay - Giá tốt chính hãng</h1>
+        <p class="section-subtitle">Cam kết 100% hàng chuẩn chất lượng, hoàn tiền 200% nếu phát hiện hàng giả</p>
+      </section>
+
+      <!-- LƯỚI SẢN PHẨM (CSS GRID): Tự động phân chia 4 cột (Desktop), 2 cột (Tablet & Mobile) -->
+      <div class="product-grid">
+
+        <!-- THẺ SẢN PHẨM 1 -->
+        <article class="product-card">
+          <!-- Nhãn giảm giá nổi bật góc trên bên trái -->
+          <span class="discount-badge">-35%</span>
+          
+          <!-- Khung ảnh tỷ lệ 1:1 có hiệu ứng zoom nhẹ khi hover -->
+          <div class="product-image-wrap">
+            <img 
+              src="images/product-1.svg" 
+              alt="Tai nghe Bluetooth True Wireless TWS Pro Chống Ồn" 
+              class="product-image"
+              loading="lazy"
+            >
+          </div>
+
+          <!-- Thông tin sản phẩm (Flexbox column) -->
+          <div class="product-info">
+            <!-- Nhãn chứng nhận chính hãng -->
+            <span class="badge-authentic">Chính hãng</span>
+            
+            <!-- Tên sản phẩm (Cắt tối đa 2 dòng bằng CSS Line-clamp) -->
+            <h2 class="product-title" title="Tai nghe Bluetooth True Wireless TWS Pro Chống Ồn">
+              Tai nghe Bluetooth True Wireless TWS Pro Chống Ồn
+            </h2>
+
+            <!-- Đánh giá sao và số lượng đã bán -->
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.9</span>
+              <span class="rating-divider">|</span>
+              <span class="sold-count">Đã bán 1.8k</span>
+            </div>
+
+            <!-- Khối Giá và Nút mua (margin-top: auto để luôn thẳng hàng đáy thẻ) -->
+            <div class="product-footer">
+              <div class="price-container">
+                <span class="price-sale">550.000<span class="price-currency">₫</span></span>
+                <span class="price-original">850.000₫</span>
+              </div>
+              <button type="button" class="btn-add-cart">
+                <span class="btn-icon">🛒</span> Thêm vào giỏ
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- THẺ SẢN PHẨM 2: Minh họa tên sản phẩm dài để kiểm tra tính năng line-clamp & thẳng hàng nút mua -->
+        <article class="product-card">
+          <span class="discount-badge">-40%</span>
+          <div class="product-image-wrap">
+            <img 
+              src="images/product-2.svg" 
+              alt="Chuột Không Dây Công Thái Học Wireless Slient Chống Mỏi Cổ Tay Kết Nối Đa Thiết Bị Bluetooth & Wireless 2.4GHz Cao Cấp" 
+              class="product-image"
+              loading="lazy"
+            >
+          </div>
+          <div class="product-info">
+            <span class="badge-authentic">Chính hãng</span>
+            <h2 class="product-title" title="Chuột Không Dây Công Thái Học Wireless Slient Chống Mỏi Cổ Tay Kết Nối Đa Thiết Bị Bluetooth & Wireless 2.4GHz Cao Cấp">
+              Chuột Không Dây Công Thái Học Wireless Slient Chống Mỏi Cổ Tay Kết Nối Đa Thiết Bị Bluetooth & Wireless 2.4GHz Cao Cấp
+            </h2>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.8</span>
+              <span class="rating-divider">|</span>
+              <span class="sold-count">Đã bán 950</span>
+            </div>
+            <div class="product-footer">
+              <div class="price-container">
+                <span class="price-sale">399.000<span class="price-currency">₫</span></span>
+                <span class="price-original">665.000₫</span>
+              </div>
+              <button type="button" class="btn-add-cart">
+                <span class="btn-icon">🛒</span> Thêm vào giỏ
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- THẺ SẢN PHẨM 3 -->
+        <article class="product-card">
+          <span class="discount-badge">-25%</span>
+          <div class="product-image-wrap">
+            <img 
+              src="images/product-3.svg" 
+              alt="Bàn Phím Cơ Không Dây RGB Hotswap 3 Chế Độ Pin Trâu" 
+              class="product-image"
+              loading="lazy"
+            >
+          </div>
+          <div class="product-info">
+            <span class="badge-authentic">Chính hãng</span>
+            <h2 class="product-title" title="Bàn Phím Cơ Không Dây RGB Hotswap 3 Chế Độ Pin Trâu">
+              Bàn Phím Cơ Không Dây RGB Hotswap 3 Chế Độ Pin Trâu
+            </h2>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">5.0</span>
+              <span class="rating-divider">|</span>
+              <span class="sold-count">Đã bán 2.4k</span>
+            </div>
+            <div class="product-footer">
+              <div class="price-container">
+                <span class="price-sale">1.190.000<span class="price-currency">₫</span></span>
+                <span class="price-original">1.590.000₫</span>
+              </div>
+              <button type="button" class="btn-add-cart">
+                <span class="btn-icon">🛒</span> Thêm vào giỏ
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- THẺ SẢN PHẨM 4: Minh họa tên sản phẩm ngắn gọn 1 dòng -->
+        <article class="product-card">
+          <span class="discount-badge">-30%</span>
+          <div class="product-image-wrap">
+            <img 
+              src="images/product-4.svg" 
+              alt="Củ Sạc Nhanh GaN 65W Type-C" 
+              class="product-image"
+              loading="lazy"
+            >
+          </div>
+          <div class="product-info">
+            <span class="badge-authentic">Chính hãng</span>
+            <h2 class="product-title" title="Củ Sạc Nhanh GaN 65W Type-C">
+              Củ Sạc Nhanh GaN 65W Type-C
+            </h2>
+            <div class="product-rating">
+              <span class="stars">★★★★☆</span>
+              <span class="rating-score">4.7</span>
+              <span class="rating-divider">|</span>
+              <span class="sold-count">Đã bán 3.1k</span>
+            </div>
+            <div class="product-footer">
+              <div class="price-container">
+                <span class="price-sale">349.000<span class="price-currency">₫</span></span>
+                <span class="price-original">499.000₫</span>
+              </div>
+              <button type="button" class="btn-add-cart">
+                <span class="btn-icon">🛒</span> Thêm vào giỏ
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- THẺ SẢN PHẨM 5 -->
+        <article class="product-card">
+          <span class="discount-badge">-28%</span>
+          <div class="product-image-wrap">
+            <img 
+              src="images/product-5.svg" 
+              alt="Loa Bluetooth Mini Chống Nước IPX7 Âm Bass Siêu Trầm Pin 12 Giờ" 
+              class="product-image"
+              loading="lazy"
+            >
+          </div>
+          <div class="product-info">
+            <span class="badge-authentic">Chính hãng</span>
+            <h2 class="product-title" title="Loa Bluetooth Mini Chống Nước IPX7 Âm Bass Siêu Trầm Pin 12 Giờ">
+              Loa Bluetooth Mini Chống Nước IPX7 Âm Bass Siêu Trầm Pin 12 Giờ
+            </h2>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.9</span>
+              <span class="rating-divider">|</span>
+              <span class="sold-count">Đã bán 720</span>
+            </div>
+            <div class="product-footer">
+              <div class="price-container">
+                <span class="price-sale">690.000<span class="price-currency">₫</span></span>
+                <span class="price-original">960.000₫</span>
+              </div>
+              <button type="button" class="btn-add-cart">
+                <span class="btn-icon">🛒</span> Thêm vào giỏ
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- THẺ SẢN PHẨM 6 -->
+        <article class="product-card">
+          <span class="discount-badge">-22%</span>
+          <div class="product-image-wrap">
+            <img 
+              src="images/product-6.svg" 
+              alt="Đồng Hồ Thông Minh Smartwatch Màn AMOLED Kháng Nước Đo Nhịp Tim SpO2" 
+              class="product-image"
+              loading="lazy"
+            >
+          </div>
+          <div class="product-info">
+            <span class="badge-authentic">Chính hãng</span>
+            <h2 class="product-title" title="Đồng Hồ Thông Minh Smartwatch Màn AMOLED Kháng Nước Đo Nhịp Tim SpO2">
+              Đồng Hồ Thông Minh Smartwatch Màn AMOLED Kháng Nước Đo Nhịp Tim SpO2
+            </h2>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.8</span>
+              <span class="rating-divider">|</span>
+              <span class="sold-count">Đã bán 1.1k</span>
+            </div>
+            <div class="product-footer">
+              <div class="price-container">
+                <span class="price-sale">1.250.000<span class="price-currency">₫</span></span>
+                <span class="price-original">1.600.000₫</span>
+              </div>
+              <button type="button" class="btn-add-cart">
+                <span class="btn-icon">🛒</span> Thêm vào giỏ
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- THẺ SẢN PHẨM 7 -->
+        <article class="product-card">
+          <span class="discount-badge">-50%</span>
+          <div class="product-image-wrap">
+            <img 
+              src="images/product-7.svg" 
+              alt="Giá Đỡ Laptop Nhôm Tản Nhiệt Xoay 360 Độ Gấp Gọn Đa Năng Cho Macbook và Laptop" 
+              class="product-image"
+              loading="lazy"
+            >
+          </div>
+          <div class="product-info">
+            <span class="badge-authentic">Chính hãng</span>
+            <h2 class="product-title" title="Giá Đỡ Laptop Nhôm Tản Nhiệt Xoay 360 Độ Gấp Gọn Đa Năng Cho Macbook và Laptop">
+              Giá Đỡ Laptop Nhôm Tản Nhiệt Xoay 360 Độ Gấp Gọn Đa Năng Cho Macbook và Laptop
+            </h2>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.9</span>
+              <span class="rating-divider">|</span>
+              <span class="sold-count">Đã bán 4.2k</span>
+            </div>
+            <div class="product-footer">
+              <div class="price-container">
+                <span class="price-sale">199.000<span class="price-currency">₫</span></span>
+                <span class="price-original">398.000₫</span>
+              </div>
+              <button type="button" class="btn-add-cart">
+                <span class="btn-icon">🛒</span> Thêm vào giỏ
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- THẺ SẢN PHẨM 8 -->
+        <article class="product-card">
+          <span class="discount-badge">-33%</span>
+          <div class="product-image-wrap">
+            <img 
+              src="images/product-8.svg" 
+              alt="Bút Cảm Ứng Đa Năng Sạc Từ Tính Chống Tì Đè Lòng Bàn Tay Cực Nhạy" 
+              class="product-image"
+              loading="lazy"
+            >
+          </div>
+          <div class="product-info">
+            <span class="badge-authentic">Chính hãng</span>
+            <h2 class="product-title" title="Bút Cảm Ứng Đa Năng Sạc Từ Tính Chống Tì Đè Lòng Bàn Tay Cực Nhạy">
+              Bút Cảm Ứng Đa Năng Sạc Từ Tính Chống Tì Đè Lòng Bàn Tay Cực Nhạy
+            </h2>
+            <div class="product-rating">
+              <span class="stars">★★★★☆</span>
+              <span class="rating-score">4.6</span>
+              <span class="rating-divider">|</span>
+              <span class="sold-count">Đã bán 890</span>
+            </div>
+            <div class="product-footer">
+              <div class="price-container">
+                <span class="price-sale">450.000<span class="price-currency">₫</span></span>
+                <span class="price-original">670.000₫</span>
+              </div>
+              <button type="button" class="btn-add-cart">
+                <span class="btn-icon">🛒</span> Thêm vào giỏ
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div> <!-- Kết thúc .product-grid -->
+    </div> <!-- Kết thúc .container -->
+  </main>
+
+  <!-- ======================================================================
+       3. FOOTER (CHÂN TRANG)
+       Thông tin bản quyền và bài tập môn học
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© 2026 UEH Store Demo - Bài tập thực hành xây dựng giao diện E-commerce bằng HTML5 & CSS3 thuần</p>
+      <p>Thiết kế Responsive tối ưu hiển thị trên Desktop, Tablet và Mobile</p>
+    </div>
+  </footer>
+
+</body>
+</html>

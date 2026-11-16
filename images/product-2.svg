@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fdf4ff"/>
+      <stop offset="100%" stop-color="#fae8ff"/>
+    </linearGradient>
+    <linearGradient id="mouseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b4252"/>
+      <stop offset="100%" stop-color="#21252d"/>
+    </linearGradient>
+    <filter id="shadow2" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#7c3aed" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg2)"/>
+  <ellipse cx="200" cy="335" rx="90" ry="16" fill="#e4d4f2" opacity="0.6"/>
+
+  <!-- Ergonomic Mouse Body -->
+  <g filter="url(#shadow2)">
+    <!-- Main shell -->
+    <path d="M 140 160 C 140 95, 260 95, 260 160 L 268 250 C 268 310, 132 310, 132 250 Z" fill="url(#mouseGrad)"/>
+    <!-- Center seam -->
+    <line x1="200" y1="95" x2="200" y2="190" stroke="#16181f" stroke-width="2.5"/>
+    <!-- Scroll wheel -->
+    <rect x="193" y="125" width="14" height="34" rx="7" fill="#0b74e5"/>
+    <!-- Side grip accent -->
+    <path d="M 136 210 Q 145 250 138 275" stroke="#00b4d8" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <!-- DPI button -->
+    <rect x="196" y="172" width="8" height="12" rx="3" fill="#64748b"/>
+  </g>
+</svg>

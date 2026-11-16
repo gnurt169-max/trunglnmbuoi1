@@ -1,0 +1,585 @@
+/* ==========================================================================
+   DỰ ÁN: BÀI TẬP CẢI TIẾN GIAO DIỆN THẺ SẢN PHẨM THƯƠNG MẠI ĐIỆN TỬ
+   CÔNG NGHỆ: CSS3 THUẦN (KHÔNG DÙNG FRAMEWORK)
+   MÔ HÌNH: CSS GRID (DANH SÁCH) & FLEXBOX (NỘI DUNG THẺ SẢN PHẨM)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CẤU HÌNH BIẾN TOÀN CỤC (CSS VARIABLES) & RESET CƠ BẢN
+   Giúp tái sử dụng mã màu, font chữ, kích thước và dễ dàng tùy biến giao diện
+   -------------------------------------------------------------------------- */
+:root {
+  /* Bảng màu nhận diện thương hiệu (Cảm hứng từ Tiki & Sàn TMĐT Việt Nam) */
+  --primary-color: #0b74e5;      /* Xanh dương chủ đạo của nút mua và điểm nhấn */
+  --primary-hover: #0856aa;      /* Màu xanh đậm khi hover nút bấm */
+  --primary-active: #064080;     /* Màu xanh khi click chuột (active state) */
+  --sale-red: #d9383a;           /* Đỏ nổi bật cho giá khuyến mãi và nhãn giảm giá */
+  --text-main: #27272a;          /* Màu chữ đen xám đậm cho tiêu đề và tên sản phẩm */
+  --text-sub: #787880;           /* Màu xám phụ cho lượt bán, đánh giá */
+  --text-strike: #808089;        /* Màu xám gạch ngang cho giá gốc */
+  --bg-page: #f5f5fa;            /* Nền trang web màu xám sáng bảo vệ mắt */
+  --bg-card: #ffffff;            /* Nền thẻ sản phẩm màu trắng */
+  --border-card: #ebebf0;        /* Viền mỏng nhẹ phân cách thẻ */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 10px 24px rgba(11, 116, 229, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset Box Sizing & Margin mặc định */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Container dùng chung để canh giữa nội dung theo chuẩn 1200px */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* --------------------------------------------------------------------------
+   2. PHẦN HEADER (ĐẦU TRANG)
+   Bao gồm Logo thương hiệu, Thanh tìm kiếm mẫu và Giỏ hàng có badge số lượng
+   -------------------------------------------------------------------------- */
+.site-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e6;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 16px;
+}
+
+/* Logo Cửa hàng */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--primary-color);
+  letter-spacing: -0.5px;
+  flex-shrink: 0;
+}
+
+.brand-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--primary-color), #00b4d8);
+  border-radius: var(--border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 18px;
+  box-shadow: 0 2px 6px rgba(11, 116, 229, 0.3);
+}
+
+.brand-badge {
+  font-size: 11px;
+  background-color: #e6f1fc;
+  color: var(--primary-color);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-left: 4px;
+}
+
+/* Thanh tìm kiếm mô phỏng */
+.header-search {
+  flex: 1;
+  max-width: 600px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  height: 40px;
+  padding: 0 100px 0 38px;
+  border: 1px solid #d0d7de;
+  border-radius: var(--border-radius-md);
+  font-size: 14px;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.search-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(11, 116, 229, 0.15);
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  font-size: 15px;
+  color: #8c939d;
+  pointer-events: none;
+}
+
+.search-btn {
+  position: absolute;
+  right: 4px;
+  height: 32px;
+  padding: 0 16px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.search-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Giỏ hàng kèm Badge số lượng */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.cart-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--text-main);
+  padding: 6px 10px;
+  border-radius: var(--border-radius-md);
+  transition: var(--transition-smooth);
+}
+
+.cart-button:hover {
+  background-color: #f0f2f5;
+}
+
+.cart-icon-wrapper {
+  position: relative;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background-color: var(--sale-red);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  border: 2px solid #ffffff;
+}
+
+.cart-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #4b525d;
+}
+
+/* --------------------------------------------------------------------------
+   3. PHẦN MAIN: TIÊU ĐỀ KHU VỰC VÀ LƯỚI SẢN PHẨM (CSS GRID)
+   Grid 4 cột trên Desktop, tự động thích ứng với Tablet và Mobile
+   -------------------------------------------------------------------------- */
+.main-content {
+  padding: 28px 0 48px;
+}
+
+.section-header {
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-title::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 20px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-top: 4px;
+  margin-left: 12px;
+}
+
+/* Lưới hiển thị danh sách sản phẩm bằng CSS Grid */
+.product-grid {
+  display: grid;
+  /* Mặc định trên màn hình Desktop: 4 cột đều nhau */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   4. THIẾT KẾ CHI TIẾT THẺ SẢN PHẨM (.product-card)
+   Áp dụng kỹ thuật:
+   - display: flex; flex-direction: column (Bố cục khối dọc hoàn chỉnh)
+   - Tỷ lệ ảnh 1:1 với hiệu ứng transform: scale khi hover
+   - margin-top: auto cho phần giá & nút mua để luôn thẳng hàng đáy thẻ
+   -------------------------------------------------------------------------- */
+.product-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  position: relative;
+  transition: var(--transition-smooth);
+
+  /* KỸ THUẬT FLEXBOX CỐT LÕI: Biến thẻ thành Flex Container dạng cột */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hiệu ứng nổi bổng khi di chuột vào thẻ */
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: #cce0ff;
+}
+
+/* Nhãn giảm giá nổi bật (Đặt góc trên bên trái của thẻ) */
+.discount-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  background-color: var(--sale-red);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(217, 56, 58, 0.35);
+  letter-spacing: 0.2px;
+}
+
+/* Khung bọc hình ảnh sản phẩm tỷ lệ vuông chuẩn 1:1 */
+.product-image-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Chuẩn CSS aspect-ratio hiện đại giúp tỷ lệ luôn vuông 1:1 */
+  overflow: hidden;
+  background-color: #fafafa;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hình ảnh sản phẩm kèm hiệu ứng phóng to nhẹ (scale) khi hover */
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.06); /* Phóng to nhẹ 6% tạo cảm giác tương tác mượt mà */
+}
+
+/* Khối nội dung văn bản bên trong thẻ */
+.product-info {
+  padding: 12px;
+  /* Sử dụng Flexbox bên trong để dễ dàng kiểm soát giãn cách */
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Cho phép nội dung lấp đầy toàn bộ chiều cao còn lại của thẻ */
+}
+
+/* Nhãn "Chính hãng" nhỏ gọn */
+.badge-authentic {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #007bc3;
+  background-color: #e5f6fd;
+  padding: 2px 6px;
+  border-radius: 3px;
+  width: fit-content;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.badge-authentic::before {
+  content: "✔";
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* Tên sản phẩm - Giới hạn tối đa 2 dòng bằng CSS Line-clamp */
+.product-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-main);
+  line-height: 1.4;
+  margin-bottom: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  /* KỸ THUẬT LINE-CLAMP: Cắt bớt văn bản thành dấu "..." khi vượt quá 2 dòng */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 2.8em; /* Giữ sẵn không gian tương đương 2 dòng giúp giao diện đồng nhất */
+}
+
+.product-title:hover {
+  color: var(--primary-color);
+}
+
+/* Đánh giá sao và số lượng đã bán */
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.stars {
+  color: #ffb800; /* Màu vàng sao */
+  font-size: 13px;
+  letter-spacing: -1px;
+}
+
+.rating-score {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.rating-divider {
+  color: #d1d5db;
+}
+
+.sold-count {
+  color: var(--text-sub);
+}
+
+/* --------------------------------------------------------------------------
+   5. KHỐI GIÁ VÀ NÚT MUA HÀNG (ALIGN BOTTOM BẰNG MARGIN-TOP: AUTO)
+   Đây là kỹ thuật giải quyết triệt để lỗi nút bấm thụt lùi khi tên sản phẩm ngắn
+   -------------------------------------------------------------------------- */
+.product-footer {
+  /* KỸ THUẬT QUAN TRỌNG: margin-top: auto đẩy toàn bộ phần giá và nút bấm 
+     xuống sát mép đáy của thẻ sản phẩm, bảo đảm tất cả các nút luôn thẳng hàng ngang */
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Khu vực hiển thị giá phân cấp rõ ràng */
+.price-container {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Giá khuyến mãi: Kích thước lớn, màu đỏ tươi, in đậm */
+.price-sale {
+  color: var(--sale-red);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.price-currency {
+  font-size: 13px;
+  font-weight: 600;
+  vertical-align: super;
+}
+
+/* Giá gốc: Cỡ chữ nhỏ hơn, màu xám nhạt, gạch ngang */
+.price-original {
+  color: var(--text-strike);
+  font-size: 13px;
+  text-decoration: line-through;
+}
+
+/* Nút thêm vào giỏ hàng (Full-width, màu xanh chủ đạo) */
+.btn-add-cart {
+  width: 100%;
+  height: 38px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: var(--transition-smooth);
+}
+
+/* Hiệu ứng di chuột (Hover) */
+.btn-add-cart:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 4px 10px rgba(11, 116, 229, 0.3);
+}
+
+/* Hiệu ứng khi nhấn giữ nút (Active) */
+.btn-add-cart:active {
+  background-color: var(--primary-active);
+  transform: scale(0.98);
+}
+
+.btn-icon {
+  font-size: 14px;
+}
+
+/* --------------------------------------------------------------------------
+   6. FOOTER ĐƠN GIẢN
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: #ffffff;
+  border-top: 1px solid #ebebf0;
+  padding: 24px 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-top: auto;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.footer-copy {
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   7. RESPONSIVE DESIGN (MEDIA QUERIES)
+   - Desktop (>1024px): 4 cột
+   - Tablet (600px - 1024px): 2 cột
+   - Mobile (<600px): 1 đến 2 cột linh hoạt dễ đọc
+   -------------------------------------------------------------------------- */
+
+/* Tablet & Màn hình vừa (600px - 1024px) */
+@media screen and (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cột trên Tablet */
+    gap: 14px;
+  }
+
+  .header-search {
+    max-width: 450px;
+  }
+}
+
+/* Mobile & Màn hình nhỏ (<600px) */
+@media screen and (max-width: 600px) {
+  .header-inner {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 10px 12px;
+  }
+
+  /* Đưa thanh tìm kiếm xuống dòng đầy đủ chiều ngang trên mobile */
+  .header-search {
+    order: 3;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .product-grid {
+    /* Hiển thị 2 cột trên smartphone phổ thông (từ 360px trở lên) 
+       hoặc 1 cột nếu màn hình cực hẹp (<360px) bằng hàm minmax */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
+
+  .product-info {
+    padding: 10px 8px;
+  }
+
+  .product-title {
+    font-size: 13px;
+    min-height: 2.8em;
+  }
+
+  .price-sale {
+    font-size: 15px;
+  }
+
+  .price-original {
+    font-size: 11px;
+  }
+
+  .btn-add-cart {
+    height: 34px;
+    font-size: 12px;
+  }
+
+  .section-title {
+    font-size: 17px;
+  }
+}

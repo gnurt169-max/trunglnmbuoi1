@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff7ed"/>
+      <stop offset="100%" stop-color="#ffedd5"/>
+    </linearGradient>
+    <linearGradient id="chargerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <filter id="shadow4" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#ea580c" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg4)"/>
+  <ellipse cx="200" cy="330" rx="90" ry="15" fill="#fed7aa" opacity="0.6"/>
+
+  <!-- GaN Fast Charger -->
+  <g filter="url(#shadow4)">
+    <!-- Plug pins -->
+    <rect x="165" y="80" width="12" height="38" rx="3" fill="#94a3b8"/>
+    <rect x="223" y="80" width="12" height="38" rx="3" fill="#94a3b8"/>
+
+    <!-- Main charger body -->
+    <rect x="140" y="110" width="120" height="170" rx="20" fill="url(#chargerGrad)" stroke="#cbd5e1" stroke-width="2"/>
+    
+    <!-- Ports area -->
+    <!-- Type-C 1 (65W) -->
+    <rect x="175" y="145" width="50" height="14" rx="7" fill="#0f172a"/>
+    <rect x="180" y="148" width="40" height="8" rx="4" fill="#f59e0b"/>
+    <text x="200" y="176" font-family="sans-serif" font-size="10" font-weight="bold" fill="#0b74e5" text-anchor="middle">GaN 65W</text>
+
+    <!-- Type-C 2 -->
+    <rect x="175" y="195" width="50" height="14" rx="7" fill="#0f172a"/>
+    <rect x="180" y="198" width="40" height="8" rx="4" fill="#0b74e5"/>
+
+    <!-- USB-A -->
+    <rect x="170" y="235" width="60" height="18" rx="4" fill="#0f172a"/>
+    <rect x="175" y="240" width="50" height="8" rx="2" fill="#ef4444"/>
+  </g>
+</svg>

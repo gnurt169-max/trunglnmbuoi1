@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0f5ff"/>
+      <stop offset="100%" stop-color="#e6edfa"/>
+    </linearGradient>
+    <linearGradient id="gradCase" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a2e3d"/>
+      <stop offset="100%" stop-color="#141721"/>
+    </linearGradient>
+    <filter id="shadow1" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0b74e5" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg1)"/>
+  <ellipse cx="200" cy="330" rx="110" ry="16" fill="#ccd9eb" opacity="0.6"/>
+  
+  <!-- Earbuds Case -->
+  <g filter="url(#shadow1)">
+    <rect x="130" y="160" width="140" height="130" rx="45" fill="url(#gradCase)"/>
+    <!-- Lid separator -->
+    <path d="M 130 205 Q 200 215 270 205" stroke="#3d4457" stroke-width="2.5" fill="none"/>
+    <!-- LED indicator -->
+    <circle cx="200" cy="235" r="4" fill="#00d68f"/>
+  </g>
+
+  <!-- Left Earbud -->
+  <g transform="translate(110, 85) rotate(-18)">
+    <rect x="15" y="45" width="12" height="42" rx="6" fill="#1e2230"/>
+    <ellipse cx="21" cy="40" rx="20" ry="18" fill="#2d3345"/>
+    <circle cx="21" cy="38" r="8" fill="#0b74e5" opacity="0.8"/>
+  </g>
+
+  <!-- Right Earbud -->
+  <g transform="translate(245, 85) rotate(18)">
+    <rect x="15" y="45" width="12" height="42" rx="6" fill="#1e2230"/>
+    <ellipse cx="21" cy="40" rx="20" ry="18" fill="#2d3345"/>
+    <circle cx="21" cy="38" r="8" fill="#0b74e5" opacity="0.8"/>
+  </g>
+</svg>
